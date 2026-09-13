@@ -1,0 +1,8 @@
+{
+  "name": "Remix Smart Engineering BD - Steel Building Construction",
+  "description": "Leading steel building construction, PEB engineering, and turnkey industrial facility design-build company in Bangladesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
