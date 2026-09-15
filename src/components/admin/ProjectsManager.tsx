@@ -13,6 +13,7 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 import { Project } from '../../types';
+import { ImageUploadField } from './ImageUploadField';
 
 export const ProjectsManager: React.FC = () => {
   const { projects, addProject, editProject, deleteProject } = useApp();
@@ -378,31 +379,12 @@ export const ProjectsManager: React.FC = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">
-                  Project Image URL *
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. /src/assets/images/... or https://..."
-                    value={formData.imageUrl}
-                    onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-md p-2 text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-amber-500 font-mono text-[11px]"
-                  />
-                  {formData.imageUrl && (
-                    <div className="w-10 h-9 rounded bg-slate-950 overflow-hidden shrink-0 border border-slate-300">
-                      <img 
-                        src={formData.imageUrl} 
-                        alt="Preview" 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover" 
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
+              <ImageUploadField
+                label="Project Site Image *"
+                value={formData.imageUrl}
+                onChange={(newUrl) => setFormData({ ...formData, imageUrl: newUrl })}
+                helperText="Upload steel superstructure, workshop, or completed building photo from your device."
+              />
 
               <div>
                 <label className="block font-bold text-slate-700 mb-1">
