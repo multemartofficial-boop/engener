@@ -99,16 +99,45 @@ export const ProdexAdminLayout: React.FC<ProdexAdminLayoutProps> = ({ onLogout }
   ];
 
   return (
-    <div className="min-h-screen flex bg-slate-100 text-slate-900">
+    <div className="h-screen w-full overflow-hidden flex bg-slate-100 text-slate-900">
       
       {/* ========================================================================= */}
-      {/* 1. LEFT SIDEBAR                                                           */}
+      {/* 1. LEFT SIDEBAR (Still, fixed in place, non-scrolling with page)          */}
       {/* ========================================================================= */}
       <aside 
-        className={`bg-white border-r border-slate-200 transition-all duration-300 flex flex-col shrink-0 z-30 ${
+        className={`h-screen sticky top-0 bg-white border-r border-slate-200 transition-all duration-300 flex flex-col shrink-0 z-30 ${
           sidebarCollapsed ? 'w-20' : 'w-64'
         }`}
       >
+        {/* Still Sidebar Header */}
+        <div className="h-16 px-4 flex items-center border-b border-slate-100 bg-white shrink-0">
+          {!sidebarCollapsed ? (
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <img 
+                src="/images/S.png" 
+                alt="Smart Engineering" 
+                className="h-8 w-auto object-contain shrink-0" 
+              />
+              <div className="leading-tight truncate">
+                <span className="font-extrabold text-slate-900 text-sm tracking-tight font-display block truncate">
+                  Smart Engineering
+                </span>
+                <span className="text-[10px] text-slate-400 font-medium tracking-wide uppercase block">
+                  Admin Panel
+                </span>
+              </div>
+            </div>
+          ) : (
+            <div className="mx-auto">
+              <img 
+                src="/images/S.png" 
+                alt="Smart Engineering" 
+                className="h-7 w-auto object-contain" 
+              />
+            </div>
+          )}
+        </div>
+
         {/* Navigation Menus List */}
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-6 scrollbar-none">
           
